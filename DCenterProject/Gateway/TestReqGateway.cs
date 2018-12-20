@@ -84,7 +84,7 @@ namespace DCenterProject.Gateway
             //connection
             SqlConnection connection = new SqlConnection(connectionString);
             //query
-            string query = "INSERT INTO PatientTest(P_Test_Id, P_Bill_No, P_Test_Date) VALUES ('"+tReq.TestReqId+"', '"+tReq.BillNo+"', '"+tReq.TestReqDate+"')";
+            string query = "INSERT INTO PatientTest(P_Test_Id, P_Bill_No, P_Test_Date, P_Test_Time) VALUES ('" + tReq.TestReqId + "', '" + tReq.BillNo + "', '" + tReq.TestReqDate + "', '"+tReq.TestReqTime+"')";
             //execute
             SqlCommand command = new SqlCommand(query, connection);
             connection.Open();

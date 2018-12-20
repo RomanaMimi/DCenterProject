@@ -108,7 +108,7 @@ namespace DCenterProject.UI
         }
 
         static string dateNow = DateTime.Now.ToString("dd/MM/yyyy hh:mm tt");
-        private string spliteDate = dateNow.Substring(0, 19);
+        private string spliteDateTime = dateNow.Substring(0, 19);
 
         protected void saveButton_Click(object sender, EventArgs e)
         {
@@ -130,7 +130,8 @@ namespace DCenterProject.UI
                 TestRequest tReq = new TestRequest();
                 tReq.PTestList = ViewState["selectedtestList"] as List<Test>;
                 tReq.BillNo = patient.BillNo;
-                tReq.TestReqDate = spliteDate;
+                tReq.TestReqDate = spliteDateTime.Substring(0, 10);
+                tReq.TestReqTime = spliteDateTime.Substring(11, 8);
                 if (msg.StartsWith("Success"))
                 {
                     string msg1 = testReqManager.SaveReqTest(tReq);
@@ -188,7 +189,7 @@ namespace DCenterProject.UI
                 phrase.Add(new Chunk("Seattle, USA\n", FontFactory.GetFont("Arial", 8, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.BLACK)));
                 pdfDoc.Add(phrase);
 
-                Paragraph pText = new Paragraph("\n\nBill Date: " + tRequest.TestReqDate + "\n\n" +
+                Paragraph pText = new Paragraph("\n\nBill Date: " + tRequest.TestReqDate +" "+ tRequest.TestReqTime+ "\n\n" +
                                                 "Bill No: " + patient.BillNo + "\n\n");
                 pdfDoc.Add(pText);
 
@@ -293,11 +294,11 @@ namespace DCenterProject.UI
             if (ViewState["flag"] == null) /*store current dateTime*/
             {
                 ViewState["flag"] = 1;
-                ViewState["MM/yyyy"] = spliteDate.Substring(3, 7);
+                ViewState["MM/yyyy"] = spliteDateTime.Substring(3, 7);
             }
 
 
-            string newDateFormat = spliteDate.Replace("/", "");
+            string newDateFormat = spliteDateTime.Replace("/", "");
             string userCellNo = patient.CellNo.Substring(patient.CellNo.Length-4); /*getting last 4 digit of cell no*/
             //string testReqNo = tReq.pTestList.Count.ToString(); /*No of tests that patient requested*/
             string serialNo = generateSerialNo(_count); /*patient serial no*/
@@ -306,7 +307,7 @@ namespace DCenterProject.UI
             string billNo = newDateFormat.Substring(0, 8) + "-" + userCellNo + "-" + serialNo; /*generate bill no(8 digit - 4 digit - 5 digit)*/
 
             /*when new month starts, patients will be counted newly.*/
-            if (spliteDate.Substring(3, 7) != (ViewState["MM/yyyy"].ToString()))
+            if (spliteDateTime.Substring(3, 7) != (ViewState["MM/yyyy"].ToString()))
             {
                 ViewState["count"] = 1;
                 ViewState["flag"] = null;

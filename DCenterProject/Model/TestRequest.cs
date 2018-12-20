@@ -13,5 +13,6 @@ namespace DCenterProject.Model
         public int PTestID { get; set; }
         public string BillNo { get; set; }
         public string TestReqDate { get; set; }
+        public string TestReqTime { get; set; }
     }
 }
