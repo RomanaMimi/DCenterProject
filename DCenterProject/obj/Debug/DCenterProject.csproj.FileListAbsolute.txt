@@ -1,0 +1,8 @@
+D:\File\VS_studio_file\DCenterProject\DCenterProject\bin\DCenterProject.dll.config
+D:\File\VS_studio_file\DCenterProject\DCenterProject\bin\DCenterProject.dll
+D:\File\VS_studio_file\DCenterProject\DCenterProject\bin\DCenterProject.pdb
+D:\File\VS_studio_file\DCenterProject\DCenterProject\obj\Debug\DCenterProject.csprojResolveAssemblyReference.cache
+D:\File\VS_studio_file\DCenterProject\DCenterProject\obj\Debug\DCenterProject.dll
+D:\File\VS_studio_file\DCenterProject\DCenterProject\obj\Debug\DCenterProject.pdb
+D:\File\VS_studio_file\DCenterProject\DCenterProject\bin\itextsharp.dll
+D:\File\VS_studio_file\DCenterProject\DCenterProject\bin\itextsharp.xml
